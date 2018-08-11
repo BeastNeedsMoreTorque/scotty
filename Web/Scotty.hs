@@ -41,8 +41,8 @@ import qualified Data.ByteString as BS
 import Data.ByteString.Lazy.Char8 (ByteString)
 import Data.Text.Lazy (Text)
 
-import Network (Socket)
 import Network.HTTP.Types (Status, StdMethod)
+import Network.Socket (Socket)
 import Network.Wai (Application, Middleware, Request, StreamingBody)
 import Network.Wai.Handler.Warp (Port)
 
@@ -114,7 +114,7 @@ next = Trans.next
 -- | Abort execution of this action. Like an exception, any code after 'finish'
 -- is not executed.
 --
--- As an example only requests to /foo/special will include in the response
+-- As an example only requests to @/foo/special@ will include in the response
 -- content the text message.
 --
 -- > get "/foo/:bar" $ do
